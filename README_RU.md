@@ -85,11 +85,3 @@ MaskingEventDispatcher.addListener { event ->
     }
 }
 ```
-
-## 🔌 Ручная регистрация модуля
-
-Если вы не используете `JsonMaskingUtil` и хотите зарегистрировать логику маскирования напрямую в свой экземпляр Jackson:
-
-```kotlin
-val mapper = ObjectMapper().registerModule(MaskingJacksonModule())
-```

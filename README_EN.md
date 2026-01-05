@@ -83,11 +83,3 @@ MaskingEventDispatcher.addListener { event ->
     println("Error: ${event.message} - ${event.throwable}")
 }
 ```
-
-## 🔌 Manual Module Registration
-
-If you are not using `JsonMaskingUtil` and want to register the masking logic directly into your own Jackson instance:
-
-```kotlin
-val mapper = ObjectMapper().registerModule(MaskingJacksonModule())
-```

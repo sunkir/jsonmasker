@@ -1,0 +1,35 @@
+project:
+  name: jsonmasker
+  description: Jackson Masking Utility.
+  longDescription: A simple Kotlin library for masking sensitive data in JSON objects using Jackson.
+  links:
+    homepage: https://github.com/sunkir/jsonmasker
+  authors:
+    - sunkir
+  maintainers:
+    - sunkir
+  license: Apache-2.0
+  inceptionYear: "2026"
+
+release:
+  github:
+    owner: sunkir
+    overwrite: true
+    discussionCategoryName: General
+
+signing:
+  active: ALWAYS
+
+deploy:
+  maven:
+    mavenCentral:
+      sonatype:
+        active: ALWAYS
+        url: https://central.sonatype.com/api/v1/publisher
+        stagingRepositories:
+          - build/repo
+        verifyPom: true
+        applyMavenCentralRules: true
+        checksums: true
+        sourceJar: true
+        javadocJar: true

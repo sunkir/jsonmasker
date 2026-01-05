@@ -16,18 +16,18 @@ class JsonMaskingUtilTest {
 
     @Test
     fun `test maskJsonString with key config`(softly: SoftAssertions) {
-        val json = """{"password": "123", "user_id": "ABC-123", "other": "val"}"""
+        val json = """{"password": "123", "user_id": "ABC-123", "device_id": "val"}"""
         val config = MaskingConfiguration().apply {
-            addKeyConfig("password", KeyMaskingConfig(strategyClass = FullMask::class, mask = "***"))
+            addKeyConfig("password", KeyMaskingConfig(strategyClass = FullMask::class, mask = "[MASKED]"))
             addKeyConfig("*_id", KeyMaskingConfig(strategyClass = SymbolMask::class))
         }
 
         val jsonResult = util.maskJsonString(json, config)
         val sut = util.objectMapper.readTree(jsonResult)
 
-        softly.assertThat(sut["password"].asText()).`as` { "Password" }.isEqualTo("***")
+        softly.assertThat(sut["password"].asText()).`as` { "Password" }.isEqualTo("[MASKED]")
         softly.assertThat(sut["user_id"].asText()).`as` { "User_id" }.isEqualTo("*******")
-        softly.assertThat(sut["other"].asText()).`as` { "Other" }.isEqualTo("val")
+        softly.assertThat(sut["device_id"].asText()).`as` { "Other" }.isEqualTo("***")
     }
 
     @Test

@@ -175,6 +175,6 @@ class JsonMaskingUtilTest {
 
         val maskedJson = util.toMaskedJson(user)
         val sut = util.objectMapper.readTree(maskedJson)
-        softly.assertThat(sut["password"].asText()).isEqualTo("[masked]")
+        softly.assertThat(sut["password"].asText()).isEqualTo(FullMask.DEFAULT_MASK)
     }
 }

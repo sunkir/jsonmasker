@@ -53,7 +53,7 @@ internal class AnnotationInheritanceTest {
         val json = TestUtil.jsonNativeTestUtil.toMaskedJson(user)
         val sut = TestUtil.jsonNativeTestUtil.objectMapper.readTree(json)
 
-        softly.assertThat(sut["secret"].asText()).`as` { "Secret" }.isEqualTo("[masked]")
+        softly.assertThat(sut["secret"].asText()).`as` { "Secret" }.isEqualTo(FullMask.DEFAULT_MASK)
     }
 
     @Test

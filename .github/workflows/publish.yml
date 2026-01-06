@@ -37,7 +37,7 @@ jobs:
         run: mkdir -p build/jreleaser
 
       - name: Publish with JReleaser
-        run: ./gradlew jreleaserFullRelease
+        run: ./gradlew jreleaserFullRelease --stacktrace --info
         env:
           JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JRELEASER_MAVENCENTRAL_SONATYPE_USERNAME: ${{ secrets.MAVEN_USERNAME }}

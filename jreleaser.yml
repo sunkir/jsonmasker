@@ -15,6 +15,7 @@ release:
   github:
     owner: sunkir
     overwrite: true
+    branch: trunk
     discussionCategoryName: General
 
 signing:

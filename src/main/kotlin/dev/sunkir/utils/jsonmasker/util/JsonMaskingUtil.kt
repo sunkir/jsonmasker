@@ -17,6 +17,10 @@ import dev.sunkir.utils.jsonmasker.strategy.MaskingStrategyFactory
  */
 open class JsonMaskingUtil(val objectMapper: ObjectMapper = defaultMapper) {
 
+    init {
+        objectMapper.registerModule(MaskingJacksonModule())
+    }
+
     /**
      * Serializes an object to JSON without applying any masking.
      *
@@ -92,7 +96,7 @@ open class JsonMaskingUtil(val objectMapper: ObjectMapper = defaultMapper) {
     companion object {
         @JvmStatic
         val defaultMapper: ObjectMapper by lazy {
-            jacksonObjectMapper().registerModule(MaskingJacksonModule())
+            jacksonObjectMapper()
         }
     }
 }

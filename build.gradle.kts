@@ -1,6 +1,6 @@
 plugins {
     `java-library`
-    kotlin("jvm") version "2.2.20"
+    kotlin("jvm") version "1.9.22"
     `maven-publish`
     id("org.jreleaser") version "1.22.0"
 }

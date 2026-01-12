@@ -11,8 +11,8 @@ package dev.sunkir.utils.jsonmasker.annotation
  */
 @Target(AnnotationTarget.FIELD, AnnotationTarget.PROPERTY, AnnotationTarget.VALUE_PARAMETER)
 @Retention(AnnotationRetention.RUNTIME)
-@dev.sunkir.utils.jsonmasker.annotation.MaskedField
+@MaskedField
 annotation class PartialMask(
-    val mask: String = _root_ide_package_.dev.sunkir.utils.jsonmasker.annotation.MaskedField.DEFAULT_STRING_MASK,
+    val mask: String = MaskedField.DEFAULT_STRING_MASK,
     val pattern: String = ""
 )
